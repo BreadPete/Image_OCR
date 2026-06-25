@@ -1,6 +1,5 @@
 streamlit
-streamlit-drawable-canvas
-opencv-python-headless
+streamlit-cropper
 numpy
 pytesseract
 Pillow
