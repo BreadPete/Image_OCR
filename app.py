@@ -113,7 +113,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-reader = easyocr.Reader(["en"], gpu=False)
+reader = easyocr.Reader(["en"], gpu=False, model_storage_directory="/opt/render/project/src/models", download_enabled=True)
 
 # ── Session state ──────────────────────────────────────────────
 if "crops" not in st.session_state:
