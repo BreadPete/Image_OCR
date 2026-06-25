@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
-import pytesseract
+import easyocr
 from PIL import Image, ImageDraw
 import numpy as np
 import io
@@ -112,6 +112,8 @@ st.markdown("""
   .status-ok { color: #7ec8a4; }
 </style>
 """, unsafe_allow_html=True)
+
+reader = easyocr.Reader(["en"], gpu=False)
 
 # ── Session state ──────────────────────────────────────────────
 if "crops" not in st.session_state:
@@ -254,7 +256,8 @@ with right_col:
 
             if st.button(f"🔍 Run OCR on Crop #{i+1}", key=f"ocr_{i}"):
                 with st.spinner("Extracting text..."):
-                    text = pytesseract.image_to_string(crop)
+                    results = reader.readtext(np.array(crop))
+                    text = " ".join([r[1] for r in results])
                     st.session_state.ocr_results[i] = text.strip() or "(no text detected)"
 
             if i in st.session_state.ocr_results:
