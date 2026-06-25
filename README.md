@@ -119,6 +119,16 @@ kontAbil/
 
 ---
 
+## 🌐 Live Demo
+
+Try it directly in your browser — no installation needed:
+
+👉 **[https://image-ocr-ycen.onrender.com](https://image-ocr-ycen.onrender.com)**
+
+> Note: The app may take ~30 seconds to wake up if it has not been used recently (free tier).
+
+---
+
 ## 🔧 Known Issues
 
 - The image path is currently hardcoded — update it before running
